@@ -1,11 +1,11 @@
 <?php
-  include('conexao.php');
   session_start();
+  include('conexao.php');
 
-  $login = mysqli_real_escape_string($conexao, $_POST['login']);
-  $senha = mysqli_real_escape_string($conexao, $_POST['senha']);
+  $login = mysqli_real_escape_string(mysqli($conexao), $_POST['login']);
+  $senha = mysqli_real_escape_string(mysqli($conexao), $_POST['senha']);
 
-  $query = "SELECT * FROM `USUARIO` WHERE `NOME` = '$login' AND `SENHA`= '$senha'";
+  $query = "SELECT * FROM 'usuarios' WHERE login = '$login' AND senha= '$senha'" or die(mysqli_error());
   $verificacao = mysqli_query($conexao, $query);
 
     /* esse bloco de código em php verifica se existe a sessão, pois o usuário pode
@@ -15,7 +15,7 @@
    então ao verificar que a session não existe a página redireciona o mesmo
    para a index.php.*/
 
-  if(mysql_num_rows($verificacao) > 0 ){
+  if(mysqli_num_rows($verificacao) > 0 ){
     $_SESSION['login'] = $login;
     $_SESSION['senha'] = $senha;
     header('location:pagina_autenticada.php');
