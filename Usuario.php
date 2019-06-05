@@ -8,10 +8,10 @@
       $this->setSenha($senha);
     }
     public function setLogin($login){
-      $this->login = login;
+      $this->login = $login;
     }
     public function setSenha($senha){
-      $this->senha = senha;
+      $this->senha = $senha;
     }
     public function getLogin(){
       return $this->login;
