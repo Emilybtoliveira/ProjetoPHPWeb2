@@ -1,8 +1,9 @@
 <?php
-  define('HOST','127.0.0.1');
+  define('HOST','localhost');
   define('USUARIO','root');
   define('SENHA','');
   define('DB','projeto');
 
-  $conexao = mysqli_connect(HOST, USUARIO, SENHA, DB) or die('Não foi possível conectar');
+  
+  $conexao = mysqli_connect("localhost", "root","", "projeto");
  ?>

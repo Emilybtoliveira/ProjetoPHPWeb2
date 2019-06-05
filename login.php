@@ -2,10 +2,10 @@
   session_start();
   include('conexao.php');
 
-  $login = mysqli_real_escape_string(mysqli($conexao), $_POST['login']);
-  $senha = mysqli_real_escape_string(mysqli($conexao), $_POST['senha']);
+  $login = $_POST['login'];
+  $senha = $_POST['senha'];
 
-  $query = "SELECT * FROM 'usuarios' WHERE login = '$login' AND senha= '$senha'" or die(mysqli_error());
+  $query = "SELECT * FROM usuarios WHERE login = '$login' AND senha= '$senha'" or die(mysqli_error());
   $verificacao = mysqli_query($conexao, $query);
 
     /* esse bloco de código em php verifica se existe a sessão, pois o usuário pode
